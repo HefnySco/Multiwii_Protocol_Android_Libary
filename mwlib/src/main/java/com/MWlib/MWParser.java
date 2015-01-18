@@ -109,7 +109,13 @@ public class MWParser {
                 if (crc == c)
                 {
                     mwpacket.CRC=c;
+                    state = MW_states.MW_PARSE_STATE_IDLE;
                     return  mwpacket;
+                }
+                else
+                {
+                    state = MW_states.MW_PARSE_STATE_IDLE;
+
                 }
                 state = MW_states.MW_PARSE_STATE_IDLE;
                 break;
