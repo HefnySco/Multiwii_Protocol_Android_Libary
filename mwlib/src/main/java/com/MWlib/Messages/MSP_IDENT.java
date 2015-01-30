@@ -1,5 +1,7 @@
 package com.MWlib.Messages;
 
+import com.MWlib.Helper;
+
 /**
  * Created by M.Hefny on 16-Jan-15.
  */
@@ -23,12 +25,31 @@ public class MSP_IDENT extends MSP_Message {
      */
     public byte MSPversion;
 
-
-    /***
+   /***
      * A 32 bit variable to indicate capability of FC board
      * Currently, BIND button is used on first bit, DYNBAL on second, FLAP on third
      */
     public int multiCapability;
+
+
+
+    @Override
+    protected void OnFinishDataInput()
+    {
+        version         = data[0];
+        multiType       = data[1];
+        MSPversion      = data[2];
+        multiCapability = Helper.getInt(data,3);
+    }
+
+
+    @Override
+    public void encode () {
+        data[0] = version;
+        data[1] = multiType;
+        data[2] = MSPversion;
+        Helper.putInt(multiCapability,data,3);
+    }
 
 
     public MSP_IDENT()

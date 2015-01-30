@@ -1,5 +1,7 @@
 package com.MWlib.Messages;
 
+import com.MWlib.Helper;
+
 /**
  * Created by M.Hefny on 16-Jan-15.
  */
@@ -33,6 +35,25 @@ public class MSP_STATUS extends MSP_Message {
      */
     public byte global_conf_currentSet;
 
+    @Override
+    protected void OnFinishDataInput()
+    {
+        cycleTime               = Helper.getShort(data,0);
+        i2c_errors_count        = Helper.getShort(data,2);
+        sensor                  = Helper.getShort(data,4); //BARO<<1|MAG<<2|GPS<<3|SONAR<<4
+        flag                    = Helper.getInt(data,6);
+        global_conf_currentSet  = data[10];
+    }
+
+
+    @Override
+    public void encode () {
+        Helper.putShort(cycleTime,data,0);
+        Helper.putShort(cycleTime,data,2);
+        Helper.putShort(cycleTime,data,4);
+        Helper.putInt(cycleTime,data,6);
+        data[10] = global_conf_currentSet;
+    }
 
     public MSP_STATUS()
     {

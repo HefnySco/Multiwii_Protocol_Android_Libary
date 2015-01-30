@@ -46,6 +46,42 @@ public class MWPacket implements Serializable {
             case MSP_STATUS.Message_ID:
                 msp_Message = new MSP_STATUS();
                 break;
+            case MSP_RAW_IMU.Message_ID:
+                msp_Message = new MSP_RAW_IMU();
+                break;
+            case MSP_RC.Message_ID:
+                msp_Message = new MSP_RC();
+                break;
+            case MSP_SET_RAW_RC.Message_ID:
+                msp_Message = new MSP_SET_RAW_RC();
+                break;
+            case MSP_ALTITUDE.Message_ID:
+                msp_Message = new MSP_ALTITUDE();
+                break;
+            case MSP_ATTITUDE.Message_ID:
+                msp_Message = new MSP_ATTITUDE();
+                break;
+            case MSP_SERVO.Message_ID:
+                msp_Message = new MSP_SERVO();
+                break;
+            case MSP_MOTOR.Message_ID:
+                msp_Message = new MSP_MOTOR();
+                break;
+            case MSP_SET_WP.Message_ID:
+                msp_Message = new MSP_SET_WP();
+                break;
+            case MSP_WP.Message_ID:
+                msp_Message = new MSP_WP();
+                break;
+            case MSP_RC_TUNING.Message_ID:
+                msp_Message = new MSP_RC_TUNING();
+                break;
+            case MSP_EEPROM_WRITE.Message_ID:
+                msp_Message = new MSP_EEPROM_WRITE();
+                break;
+            case MSP_SET_HEAD.Message_ID:
+                msp_Message = new MSP_SET_HEAD();
+                break;
             default:
                 msp_Message = new MSP_UNKNOWN(size);
                 break;
@@ -89,7 +125,7 @@ public class MWPacket implements Serializable {
         byte[] buffer = new byte[5 + size + 1];
         int i = 0;
         byte crc=0;
-       buffer[i++] = (byte) '$';
+        buffer[i++] = (byte) '$';
         buffer[i++] = (byte) 'M';
         buffer[i++] = (byte) direction;
         buffer[i++] = (byte) size;

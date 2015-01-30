@@ -15,13 +15,12 @@ public class MWParser {
         MW_PARSE_STATE_IDLE,
         MW_PARSE_STATE_GOT_HEADER_$,
         MW_PARSE_STATE_GOT_HEADER_M,
-        MW_PARSE_STATE_GOT_HEADER_ARROR,
+        MW_PARSE_STATE_GOT_HEADER_ARROW,
         MW_PARSE_STATE_GOT_HEADER_ERROR,
         MW_PARSE_STATE_GOT_DATA_SIZE,
         MW_PARSE_STATE_GOT_COMMAND_ID,
         MW_PARSE_STATE_GOT_DATA,
-        MW_PARSE_STATE_GOT_CRC,
-        MW_PARSE_STATE_GOT_STX, MW_PARSE_STATE_GOT_LENGTH, MW_PARSE_STATE_GOT_SEQ, MW_PARSE_STATE_GOT_SYSID, MW_PARSE_STATE_GOT_COMPID, MW_PARSE_STATE_GOT_MSGID, MW_PARSE_STATE_GOT_CRC1, MW_PARSE_STATE_GOT_PAYLOAD
+        MW_PARSE_STATE_GOT_CRC
     }
 
     MW_states state = MW_states.MW_PARSE_STATE_UNINIT;
@@ -60,7 +59,7 @@ public class MWParser {
                 if ((c=='>') || (c== '<'))
                 {
                     mwpacket.direction = c;
-                    state = MW_states.MW_PARSE_STATE_GOT_HEADER_ARROR;
+                    state = MW_states.MW_PARSE_STATE_GOT_HEADER_ARROW;
                 }
                 else if (c=='!')
                 {
@@ -72,7 +71,7 @@ public class MWParser {
                     state = MW_states.MW_PARSE_STATE_IDLE;
                 }
                 break;
-            case MW_PARSE_STATE_GOT_HEADER_ARROR:
+            case MW_PARSE_STATE_GOT_HEADER_ARROW:
             case MW_PARSE_STATE_GOT_HEADER_ERROR:
                 // waiting for Data Size
                 mwpacket.size = c; // read data size;

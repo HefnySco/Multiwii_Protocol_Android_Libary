@@ -14,5 +14,14 @@ public class MSP_EEPROM_WRITE extends MSP_Message {
         data = new byte[messageLength];
     }
 
+    @Override
+    protected void OnFinishDataInput() {
 
+    }
+
+    @Override
+    public void encode ()
+    {
+
+    }
 }
