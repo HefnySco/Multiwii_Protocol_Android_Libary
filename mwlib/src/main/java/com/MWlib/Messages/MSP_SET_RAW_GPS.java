@@ -13,7 +13,14 @@ public class MSP_SET_RAW_GPS extends MSP_Message {
         messageLength= 1+1+4+4+2+2;
         data = new byte[messageLength];
     }
-    
+
+
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
 
 
 }

@@ -15,6 +15,13 @@ public class MSP_EEPROM_WRITE extends MSP_Message {
     }
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     protected void OnFinishDataInput() {
 
     }

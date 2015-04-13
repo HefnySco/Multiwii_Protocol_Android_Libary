@@ -10,8 +10,15 @@ public class MSP_MOTOR_PINS  extends MSP_Message {
 
     public MSP_MOTOR_PINS()
     {
-        messageLength= 8 * 1;
+        messageLength= 8;  //8 * 1;
         data = new byte[messageLength];
     }
+
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
 
 }

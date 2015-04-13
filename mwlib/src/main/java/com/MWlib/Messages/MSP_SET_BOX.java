@@ -11,7 +11,16 @@ public class MSP_SET_BOX  extends MSP_Message {
     public MSP_SET_BOX()
     {
         messageLength= 0;
-        data = new byte[messageLength];
+
     }
+
+
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 
 }

@@ -25,6 +25,13 @@ public class MSP_SET_HEAD extends MSP_Message {
 
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     protected void OnFinishDataInput() {
         magHold      = Helper.getShort(data, 0);
     }

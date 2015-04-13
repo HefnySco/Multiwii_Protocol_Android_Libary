@@ -38,6 +38,13 @@ public class MSP_ATTITUDE  extends MSP_Message {
     }
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     public void encode ()
     {
         Helper.putShort(angx,data,0);

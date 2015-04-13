@@ -55,4 +55,11 @@ public class MSP_WP  extends MSP_Message {
         data[17] = navFlag;
     }
 
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 }

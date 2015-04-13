@@ -28,6 +28,13 @@ public class MSP_SET_WP  extends MSP_Message {
 
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     protected void OnFinishDataInput()
     {
         wp_no           = data[0];

@@ -20,6 +20,13 @@ public class MSP_SERVO extends MSP_Message {
     }
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     protected void OnFinishDataInput()
     {
         for (int i=0;i<8;i+=1) {

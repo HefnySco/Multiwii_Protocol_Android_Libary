@@ -75,6 +75,13 @@ public class MSP_RAW_IMU extends MSP_Message {
 
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     protected void OnFinishDataInput()
     {
         accx       = Helper.getShort(data,0);

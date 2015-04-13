@@ -27,6 +27,13 @@ public class MSP_SET_RAW_RC extends MSP_Message {
     }
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     protected void OnFinishDataInput()
     {
         rcRoll      = Helper.getShort(data, 0);
@@ -51,4 +58,6 @@ public class MSP_SET_RAW_RC extends MSP_Message {
         Helper.putShort(rcAUX3,data,12);
         Helper.putShort(rcAUX4,data,14);
     }
+
+
 }

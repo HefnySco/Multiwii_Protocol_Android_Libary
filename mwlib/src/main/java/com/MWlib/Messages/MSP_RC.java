@@ -29,6 +29,13 @@ public class MSP_RC extends MSP_Message {
 
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     protected void OnFinishDataInput()
     {
         rcRoll      = Helper.getShort(data, 0);

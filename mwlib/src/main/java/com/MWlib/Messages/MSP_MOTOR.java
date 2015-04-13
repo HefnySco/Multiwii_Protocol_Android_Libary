@@ -34,5 +34,12 @@ public class MSP_MOTOR extends MSP_Message {
         }
     }
 
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 
 }

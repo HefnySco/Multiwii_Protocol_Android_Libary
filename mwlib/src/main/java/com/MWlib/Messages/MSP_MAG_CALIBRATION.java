@@ -14,4 +14,13 @@ public class MSP_MAG_CALIBRATION extends MSP_Message {
         messageLength= 0;
         data = new byte[messageLength];
     }
+
+
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 }

@@ -15,4 +15,11 @@ public class MSP_BIND extends MSP_Message {
     }
 
 
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 }

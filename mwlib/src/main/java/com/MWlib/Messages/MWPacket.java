@@ -18,6 +18,8 @@ import java.io.Serializable;
  */
 public class MWPacket implements Serializable {
 
+    public static byte Direction_From_MWC = '>';
+    public static byte Direction_to_MWC = '<';
 
     protected byte dataIndex =0;
 
@@ -34,12 +36,18 @@ public class MWPacket implements Serializable {
     public byte CRC;
 
     // message ID
-    public void setCommand (byte commandId)
+    public void setCommandId(byte commandId)
     {
         // sometimes we need to pass size to message classes.
         commandID = commandId;
         switch (commandId)
         {
+            case MSP_ANALOG.Message_ID:
+                msp_Message = new MSP_ANALOG();
+                break;
+            case MSP_RAW_GPS.Message_ID:
+                msp_Message = new MSP_RAW_GPS();
+                break;
             case MSP_IDENT.Message_ID:
                 msp_Message = new MSP_IDENT();
                 break;
@@ -99,6 +107,13 @@ public class MWPacket implements Serializable {
     {
         return msp_Message;
     }
+
+    public void setCommand(MSP_Message msp_message)
+    {
+        msp_Message= msp_message;
+        commandID = msp_message.getMessageID();
+    }
+
 
     public void putData (byte c)
     {

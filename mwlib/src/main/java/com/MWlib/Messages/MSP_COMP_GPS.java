@@ -15,4 +15,11 @@ public class MSP_COMP_GPS extends MSP_Message {
         data = new byte[messageLength];
     }
 
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 }

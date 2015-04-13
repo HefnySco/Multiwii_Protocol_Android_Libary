@@ -61,4 +61,11 @@ public class MSP_STATUS extends MSP_Message {
         data = new byte[messageLength];
     }
 
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 }

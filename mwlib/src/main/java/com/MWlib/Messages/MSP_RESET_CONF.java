@@ -11,7 +11,14 @@ public class MSP_RESET_CONF extends MSP_Message {
     public MSP_RESET_CONF()
     {
         messageLength= 0;
-        data = new byte[messageLength];
+
+    }
+
+
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
     }
 
 

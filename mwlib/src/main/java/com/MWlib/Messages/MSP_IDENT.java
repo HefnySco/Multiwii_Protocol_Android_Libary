@@ -59,5 +59,12 @@ public class MSP_IDENT extends MSP_Message {
     }
 
 
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 
 }

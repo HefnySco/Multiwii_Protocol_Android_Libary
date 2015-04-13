@@ -14,4 +14,10 @@ public class MSP_ACC_CALIBRATION  extends MSP_Message {
         messageLength= 0;
     }
 
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
 }

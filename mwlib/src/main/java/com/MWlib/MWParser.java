@@ -56,7 +56,7 @@ public class MWParser {
                 }
                 break;
             case MW_PARSE_STATE_GOT_HEADER_M:
-                if ((c=='>') || (c== '<'))
+                if ((c==MWPacket.Direction_From_MWC) || (c== MWPacket.Direction_to_MWC))
                 {
                     mwpacket.direction = c;
                     state = MW_states.MW_PARSE_STATE_GOT_HEADER_ARROW;
@@ -80,7 +80,7 @@ public class MWParser {
                 crc ^=c;
                 break;
             case MW_PARSE_STATE_GOT_DATA_SIZE:
-                mwpacket.setCommand(c);
+                mwpacket.setCommandId(c);
                 if (lastPacketDataSize!=0) {
                     state = MW_states.MW_PARSE_STATE_GOT_COMMAND_ID;
                 }

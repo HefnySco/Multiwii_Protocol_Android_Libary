@@ -35,6 +35,14 @@ public class MSP_ALTITUDE  extends MSP_Message {
         vario       = Helper.getShort(data, 4);
     }
 
+
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
     @Override
     public void encode ()
     {

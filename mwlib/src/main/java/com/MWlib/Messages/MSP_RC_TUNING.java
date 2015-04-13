@@ -28,6 +28,13 @@ public class MSP_RC_TUNING  extends MSP_Message {
     }
 
     @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
+    @Override
     protected void OnFinishDataInput()
     {
         byteRC_RATE         = data[0];

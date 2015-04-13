@@ -10,8 +10,15 @@ public class MSP_PID  extends MSP_Message {
 
     public MSP_PID()
     {
-        messageLength= 30 * 1;
+        messageLength= 30; //30 * 1;
         data = new byte[messageLength];
+    }
+
+
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
     }
 
 

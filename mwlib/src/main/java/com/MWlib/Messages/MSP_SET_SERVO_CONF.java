@@ -14,4 +14,11 @@ public class MSP_SET_SERVO_CONF  extends MSP_Message {
         data = new byte[messageLength];
     }
 
+    @Override
+    public byte getMessageID()
+    {
+        return Message_ID;
+    }
+
+
 }

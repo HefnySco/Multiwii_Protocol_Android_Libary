@@ -5,6 +5,10 @@ package com.MWlib;
  */
 public class Helper {
 
+    public static void putByte(byte data, byte[]packet, int index) {
+        packet[index]   = data;
+    }
+
 
     public static void putShort(short data, byte[]packet, int index) {
         packet[index]   = ((byte)(data >> 0));
@@ -79,5 +83,11 @@ public class Helper {
         result  |= ((packet[index+1] & (short)0xFF) << 8);
 
         return result;
+    }
+
+    public static byte getByte(byte[]packet, int index) {
+
+        return packet[index];
+
     }
 }

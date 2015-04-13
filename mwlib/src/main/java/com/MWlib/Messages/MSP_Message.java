@@ -11,6 +11,13 @@ public class MSP_Message {
 
     protected byte dataIndex = 0;
 
+
+
+    public byte getMessageID()
+    {
+        return 0;
+    }
+
     public void putData(byte c) {
         if (dataIndex >= messageLength) {
             return;
@@ -24,6 +31,16 @@ public class MSP_Message {
     }
 
 
+    public MWPacket pack()
+    {
+        encode();
+        MWPacket mwPacket = new MWPacket();
+        mwPacket.direction = MWPacket.Direction_to_MWC;
+        mwPacket.size = this.messageLength;
+        mwPacket.setCommand(this);
+
+        return mwPacket;
+    }
 
 
     public void encode () {
